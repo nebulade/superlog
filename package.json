@@ -2,7 +2,7 @@
   "name": "superlog",
   "version": "0.1.0",
   "description": "Read logs from a remote url",
-  "main": "",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,5 +14,20 @@
   "dependencies": {
     "colors": "^0.6.2",
     "superagent": "^0.18.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nebulade/superlog.git"
+  },
+  "keywords": [
+    "log",
+    "superlogs",
+    "logs",
+    "beanstalk"
+  ],
+  "bugs": {
+    "url": "https://github.com/nebulade/superlog/issues"
+  },
+  "homepage": "https://github.com/nebulade/superlog"
 }
