@@ -1,0 +1,34 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var colors = require('colors'),
+    superagent = require('superagent');
+
+var fileURI = process.argv[2];
+var displayedCount = 0;
+
+console.log('Showing logs for "%s".'.cyan, fileURI);
+
+function refresh () {
+    superagent.get(fileURI).end(function (error, result) {
+        if (error) {
+            console.error('Unable to fetch log file.'.red, error);
+            process.exit(1);
+        }
+
+        var tmp = result.text.split('\n');
+        tmp = tmp.slice(displayedCount, tmp.length-1);
+
+        tmp.forEach(function (line) {
+            console.log(line);
+        });
+
+        // update the displayedCount
+        displayedCount += tmp.length;
+
+        setTimeout(refresh, 1000);
+    });
+}
+
+refresh();
